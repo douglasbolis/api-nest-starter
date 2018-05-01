@@ -1,0 +1,114 @@
+{
+  "name": "api-nest-starter",
+  "version": "0.0.0",
+  "description": "Web api starter",
+  "main": "src/main.ts",
+  "private": true,
+  "scripts": {
+    "lint": "tslint --fix --format stylish --project tsconfig.json",
+    "preinstall": "use-yarn || npm install use-yarn && use-yarn",
+    "postinstall": "rimraf package-lock.json",
+    "start": "ts-node -r tsconfig-paths/register src/main.ts",
+    "start:watch": "nodemon",
+    "prestart:prod": "yarn clean-dist && tsc",
+    "start:prod": "node dist/main.js",
+    "test": "jest",
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "pretsc": "yarn clean-dist",
+    "tsc": "tsc",
+    "tsc:watch": "tsc --watch",
+    "clean-dist": "rimraf dist",
+    "commitmsg": "validate-commit-msg"
+  },
+  "config": {
+    "validate-commit-msg": {
+      "types": [
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "perf",
+        "test",
+        "chore",
+        "revert",
+        "ci",
+        "build"
+      ],
+      "warnOnFail": false,
+      "maxSubjectLength": 100,
+      "subjectPattern": ".+",
+      "subjectPatternErrorMsg": "subject does not match subject pattern!",
+      "helpMessage": ""
+    },
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidpvilaca/api-nest-starter.git"
+  },
+  "keywords": [
+    "api",
+    "nodejs",
+    "nestjs"
+  ],
+  "author": "David Vilaça <vilacapdavid@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davidpvilaca/api-nest-starter/issues"
+  },
+  "homepage": "https://github.com/davidpvilaca/api-nest-starter#README",
+  "dependencies": {
+    "@nestjs/common": "^4.6.6",
+    "@nestjs/core": "^4.6.6",
+    "@nestjs/microservices": "^4.6.6",
+    "@nestjs/testing": "^4.6.6",
+    "@nestjs/websockets": "^4.6.6",
+    "dotenv": "^5.0.1",
+    "oh-my-log": "^5.0.1",
+    "reflect-metadata": "^0.1.12",
+    "rxjs": "^5.5.10"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^4.0.3",
+    "@types/express": "^4.11.1",
+    "@types/jest": "^22.2.3",
+    "@types/node": "^8.10.11",
+    "@types/supertest": "^2.0.4",
+    "codelyzer": "^4.3.0",
+    "cz-conventional-changelog": "^2.1.0",
+    "husky": "^0.14.3",
+    "jest": "^22.4.3",
+    "nodemon": "^1.17.3",
+    "rimraf": "^2.6.2",
+    "supertest": "^3.0.0",
+    "ts-jest": "^22.4.4",
+    "ts-node": "^6.0.2",
+    "tsconfig-paths": "^3.3.1",
+    "tslint": "^5.9.1",
+    "tslint-config-prettier": "^1.12.0",
+    "tslint-config-standard": "^7.0.0",
+    "typescript": "^2.8.3",
+    "use-yarn": "^2.2.0",
+    "validate-commit-msg": "^2.14.0"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "coverageDirectory": "../coverage"
+  },
+  "engines": {
+    "node": "^8.11.0",
+    "yarn": "^1.5.1"
+  }
+}
